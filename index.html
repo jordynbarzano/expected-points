@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expected Points Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Coin and Dice Game</h1>
+        
+        <div class="game-section">
+            <div class="stage-info">
+                <h3>Game Progress</h3>
+                <p id="stage-description">Complete each stage in order to finish the game!</p>
+            </div>
+
+            <div class="stages-container">
+                <!-- Stage 1: Coin Flip -->
+                <div class="stage-box" id="stage-1">
+                    <h4>Stage 1: Coin Flip</h4>
+                    <p class="stage-instruction">Get heads to advance</p>
+                    <div class="stage-display" id="coin-display"></div>
+                    <button id="coin-button" class="btn-stage">Flip Coin</button>
+                    <div class="stage-status" id="coin-status"></div>
+                </div>
+
+                <!-- Stage 2: Two Dice -->
+                <div class="stage-box locked" id="stage-2">
+                    <h4>Stage 2: Two Dice</h4>
+                    <p class="stage-instruction">Don't roll a sum of 7!</p>
+                    <div class="stage-display" id="two-dice-display"></div>
+                    <button id="two-dice-button" class="btn-stage" disabled>Roll Two Dice</button>
+                    <div class="stage-status" id="two-dice-status"></div>
+                </div>
+
+                <!-- Stage 3: Three Dice -->
+                <div class="stage-box locked" id="stage-3">
+                    <h4>Stage 3: Three Dice</h4>
+                    <p class="stage-instruction">All even: sum+, All odd: sum-, Mixed: 1st-2nd+3rd</p>
+                    <div class="stage-display" id="three-dice-display"></div>
+                    <button id="three-dice-button" class="btn-stage" disabled>Roll Three Dice</button>
+                    <div class="stage-status" id="three-dice-status"></div>
+                </div>
+            </div>
+
+            <div class="score-display">
+                <h3>Current Game Score: <span id="current-score">0</span></h3>
+            </div>
+
+            <div class="game-controls">
+                <button id="reset-button" class="btn-secondary">Reset Game</button>
+            </div>
+
+            <div class="progress-tracker">
+                <h3>Current Game Progress Tracker</h3>
+                <div class="progress-header">
+                    <div class="progress-col">Step</div>
+                    <div class="progress-col">Previous</div>
+                    <div class="progress-col">Expected</div>
+                    <div class="progress-col">Change</div>
+                </div>
+                <div id="progress-steps"></div>
+                <div id="progress-total" class="progress-total"></div>
+            </div>
+
+            <div class="expected-tracker">
+                <h3>Expected Value Tracker</h3>
+                <div class="tracker-header">
+                    <div class="tracker-col">Game #</div>
+                    <div class="tracker-col">Actual Score</div>
+                    <div class="tracker-col">Expected (1.25)</div>
+                    <div class="tracker-col">Difference</div>
+                </div>
+                <div id="tracker-history"></div>
+                <div class="tracker-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">Cumulative Difference:</span>
+                        <span id="cumulative-diff" class="summary-value">0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Average Difference:</span>
+                        <span id="average-diff" class="summary-value">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>Score History</h2>
+            <div id="score-history"></div>
+            <div class="stats">
+                <p>Games Played: <span id="games-played">0</span></p>
+                <p>Average Score: <span id="average-score">0.00</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
